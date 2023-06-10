@@ -74,22 +74,18 @@ async function run() {
 
 
     // user sellection 
-    // app.get('/selected', async(req,res)=>{
-    //   const email = req.query.email;
-    //   console.log(email);
-    //   if(!email){
-    //     return res.send([]);
-    //   }
+    app.get('/selected', async(req,res)=>{
+     const email= req.query.email;
+     console.log(email);
 
-    //      const decodedEmail = req.decoded.email;
-    //      if(email!==decodedEmail){
-    //       return res.status(403).send({error: true, message: 'forbidden access'})
-    //      }
+     if(!email){
+      res.send([])
+     }
 
-    //   const query = {email:email};
-    //   const result = await selectedCollection.find(query).toArray();
-    //   return res.send(result)
-    // });
+     const query ={email:email};
+      const result= await selectedCollection.find(query).toArray();
+      res.send(result)
+    });
 
     app.post('/selected',async(req,res)=>{
       const selectedClass = req.body;
