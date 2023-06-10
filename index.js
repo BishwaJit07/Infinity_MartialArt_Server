@@ -52,6 +52,9 @@ async function run() {
     //     const token = jwt.sign(user, process.env.JwtAccess_Token,{ expiresIn: '1h' })
     //     res.send({token})
     //   })
+
+
+
     //  users realated api is here
     
     app.post('/users', async(req,res)=>{
@@ -68,6 +71,9 @@ async function run() {
     })
 
 
+
+    // class realated api 
+    
 
 
 
