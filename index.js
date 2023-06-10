@@ -45,6 +45,8 @@ async function run() {
     await client.connect();
 
     const usersCollection = client.db('InfinityMarttialArts').collection('users');
+    const classesCollection = client.db('InfinityMarttialArts').collection('class');
+    const selectedCollection = client.db('InfinityMarttialArts').collection('selected');
 
 
     // app.post('/jwt', (req,res)=>{
@@ -71,9 +73,36 @@ async function run() {
     })
 
 
+    // user sellection 
+    // app.get('/selected', async(req,res)=>{
+    //   const email = req.query.email;
+    //   console.log(email);
+    //   if(!email){
+    //     return res.send([]);
+    //   }
+
+    //      const decodedEmail = req.decoded.email;
+    //      if(email!==decodedEmail){
+    //       return res.status(403).send({error: true, message: 'forbidden access'})
+    //      }
+
+    //   const query = {email:email};
+    //   const result = await selectedCollection.find(query).toArray();
+    //   return res.send(result)
+    // });
+
+    app.post('/selected',async(req,res)=>{
+      const selectedClass = req.body;
+      console.log(selectedClass);
+      const result = await selectedCollection.insertOne(selectedClass);
+     return res.send(result);
+    })
 
     // class realated api 
-    
+    app.get('/classes',async(req,res)=>{
+      const result = await classesCollection.find().toArray();
+      return res.send(result);
+  })
 
 
 

@@ -1,0 +1,27 @@
+{
+    "Image": "instructor1.jpg",
+    "Name": "John Smith",
+    "Email": "john.smith@example.com"
+  }
+
+  {
+    "Image": "instructor2.jpg",
+    "Name": "Emily Johnson",
+    "Email": "emily.johnson@example.com"
+  }
+  {
+  "Image": "instructor3.jpg",
+  "Name": "Michael Lee",
+  "Email": "michael.lee@example.com"
+}
+{
+    "Image": "instructor4.jpg",
+    "Name": "Sarah Wilson",
+    "Email": "sarah.wilson@example.com"
+  }
+  {
+    "Image": "instructor5.jpg",
+    "Name": "David Miller",
+    "Email": "david.miller@example.com"
+  }
+  
