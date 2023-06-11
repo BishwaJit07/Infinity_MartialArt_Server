@@ -26,7 +26,7 @@ app.use(express.json());
 //  })
 // }
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 
 const uri = `mongodb+srv://${process.env.DB_User}:${process.env.DB_Pass}@cluster0.gq6gqcm.mongodb.net/?retryWrites=true&w=majority`;
 
@@ -58,7 +58,41 @@ async function run() {
 
 
     //  users realated api is here
+    app.get('/users',async(req,res)=>{
+      const result = await usersCollection.find().toArray();
+      return res.send(result);
+  })
+
+  app.patch('/users/admin/:id', async(req,res)=>{
+   
+    const id = req.params.id;
+    const query = {_id: new ObjectId(id)};
+    console.log(id);
+    const updateDoc={
+      $set:{
+        role:'admin'
+      }
+    }
+    const result = await usersCollection.updateOne(query,updateDoc)
+    return res.send(result);
     
+
+  })
+  app.patch('/users/instructor/:id', async(req,res)=>{
+   
+    const id = req.params.id;
+    const query = {_id: new ObjectId(id)};
+    const updateDoc={
+      $set:{
+        role:'instrctor'
+      }
+    }
+    const result = await usersCollection.updateOne(query,updateDoc)
+    return res.send(result);
+    
+
+  })
+
     app.post('/users', async(req,res)=>{
         const user = req.body;
         const query = {email: user.email};
