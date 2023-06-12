@@ -1,27 +1,32 @@
 {
-    "Image": "instructor1.jpg",
-    "Name": "John Smith",
-    "Email": "john.smith@example.com"
+   "photoURL": "https://media.istockphoto.com/id/1291154254/photo/sensei-and-two-martial-arts-students-training-together.jpg?s=612x612&w=0&k=20&c=q4GYtPKGdEb3y37xO77vz2WrcOyc-zTExl7O48avZeA=",
+    "name": "John Smith",
+    "email": "john.smith@example.com",
+    "role1":"instructor"
   }
 
   {
-    "Image": "instructor2.jpg",
-    "Name": "Emily Johnson",
-    "Email": "emily.johnson@example.com"
+   "photoURL": "https://media.istockphoto.com/id/1289155017/photo/blocking.jpg?s=612x612&w=0&k=20&c=xg2gpp5rxI2p0K1i4xTrBLu17WNrO910t6dpbsLs8-s=",
+    "name": "Emily Johnson",
+    "email": "emily.johnson@example.com",
+    "role1":"instructor"
   }
   {
-  "Image": "instructor3.jpg",
-  "Name": "Michael Lee",
-  "Email": "michael.lee@example.com"
+ "photoURL": "https://cdn.shopify.com/s/files/1/0940/1604/files/Manuel_060_large.jpg?v=1527059087",
+  "name": "Michael Lee",
+  "email": "michael.lee@example.com"  ,
+   "role1":"instructor"
 }
 {
-    "Image": "instructor4.jpg",
-    "Name": "Sarah Wilson",
-    "Email": "sarah.wilson@example.com"
+   "photoURL": "https://st2.depositphotos.com/3927429/12160/i/450/depositphotos_121609128-Fighter-mixed-martial-arts-training-in-the-gym.jpg",
+    "name": "Sarah Wilson",
+    "email": "sarah.wilson@example.com",
+    "role1":"instructor"
   }
   {
-    "Image": "instructor5.jpg",
-    "Name": "David Miller",
-    "Email": "david.miller@example.com"
+   "photoURL": "https://media.gettyimages.com/id/1068716940/photo/portrait-of-mixed-martial-artist-sitting-at-gym.jpg?s=170667a&w=gi&k=20&c=4zknMNFvhvsmEhNT0bDk7HIIrzPHIIfGjzAlW6EWMeo=",
+    "name": "David Miller",
+    "email": "david.miller@example.com",
+    "role1":"instructor"
   }
   

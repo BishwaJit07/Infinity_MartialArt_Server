@@ -89,14 +89,14 @@ async function run() {
       const query = { _id: new ObjectId(id) };
       const updateDoc = {
         $set: {
-          role1: "instrctor",
+          role1: "instructor",
         },
       };
       const result = await usersCollection.updateOne(query, updateDoc);
       return res.send(result);
     });
 
-    app.post("/users", verifyJwt, async (req, res) => {
+    app.post("/users",  async (req, res) => {
       const user = req.body;
       const query = { email: user.email };
 
@@ -127,7 +127,7 @@ async function run() {
       const email = req.params.email;
       const query = {email:email}
       const user = await usersCollection.findOne(query);
-      const result = {instructor:user?.role1==='instrctor'}
+      const result = {instructor:user?.role1==='instructor'}
       res.send(result)
     })
 
