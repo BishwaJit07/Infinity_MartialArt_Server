@@ -47,7 +47,7 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
+    // await client.connect();
 
     const usersCollection = client
       .db("InfinityMarttialArts")
@@ -163,6 +163,22 @@ async function run() {
       const result = await classesCollection.find().toArray();
       return res.send(result);
     });
+
+    app.patch("/classes/:id", async (req, res) => {
+      const { id, feedback, status } = req.body;
+    
+      const query = { _id: new ObjectId(id) };
+      const updateDoc = {
+        $set: {
+          feedback: feedback,
+          status: status,
+        },
+      };
+    
+      const result = await classesCollection.updateOne(query, updateDoc);
+      return res.send(result);
+    });
+    
 
 // payment related api 
 
