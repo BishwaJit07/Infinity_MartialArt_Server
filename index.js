@@ -157,6 +157,12 @@ async function run() {
       const result = await selectedCollection.insertOne(selectedClass);
       return res.send(result);
     });
+    app.delete('/selected/:id',  async(req,res)=>{
+      const id= req.params.id;
+      const query= {$or:[{_id:new ObjectId(id)},{_id:id}]}; 
+      const result = await selectedCollection.deleteOne(query);
+      return res.send(result);
+ })
 
     // class realated api
     app.get("/classes", async (req, res) => {
@@ -165,13 +171,14 @@ async function run() {
     });
 
     app.patch("/classes/:id", async (req, res) => {
-      const { id, feedback, status } = req.body;
+      const { id, feedback, status ,enrolled} = req.body;
     
       const query = { _id: new ObjectId(id) };
       const updateDoc = {
         $set: {
           feedback: feedback,
           status: status,
+          enrolled:enrolled,
         },
       };
     
