@@ -179,6 +179,12 @@ async function run() {
       return res.send(result);
     });
     
+    app.post("/classes", async (req, res) => {
+      const newClass = req.body;
+      console.log(newClass);
+      const result = await classesCollection.insertOne(newClass);
+      return res.send(result);
+    });
 
 // payment related api 
 
