@@ -58,6 +58,9 @@ async function run() {
     const selectedCollection = client
       .db("InfinityMarttialArts")
       .collection("selected");
+    const paymentCollection = client
+      .db("InfinityMarttialArts")
+      .collection("payment");
 
     app.post("/jwt", (req, res) => {
       const user = req.body;
@@ -195,22 +198,31 @@ async function run() {
 
 // payment related api 
 
-app.post("/create-payment-intent", async (req, res) => {
+app.post("/create-payment-intent",verifyJwt, async (req, res) => {
   const { price } = req.body;
   const amount = price*100;
-
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
     amount: amount,
     currency: "usd",
-    payment_methods_types:['card']
+    payment_method_types:['card']
   });
   res.send({
-    paymentIntent: paymentIntent.client_secret
+    clientSecret: paymentIntent.client_secret
   })
 })
-    
 
+  app.post('/payment', verifyJwt, async(req,res)=>{
+    const payment = req.body;
+    const inresult = await paymentCollection.insertOne(payment);
+  
+    return res.send(inresult);
+  })  
+
+   app.get("/payment", async (req, res) => {
+      const result = await paymentCollection.find().toArray();
+      return res.send(result);
+    });
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(
